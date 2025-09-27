@@ -33,16 +33,15 @@ export default function Navbar() {
                 : 'bg-white/95 dark:bg-gray-900/95 border-b border-gray-200 dark:border-gray-700'
         }`}>
             <div className='flex-1'>
-                <h1 className='text-xl sm:text-2xl font-bold text-primary'>My Portfolio</h1>    
+                <h1 className='text-xl sm:text-2xl font-bold text-primary'>Sophavisnuka</h1>    
             </div>
             
             {/* Desktop Menu */}
             <ul className='flex-1 text-primary hidden md:flex justify-center gap-8 lg:gap-[4rem] bg-white dark:bg-gray-800 shadow-sm py-2 px-5 rounded-lg'>
                 <li><Link href="/" className="hover:text-secondary transition-colors duration-300">Home</Link></li>
                 <li><Link href="/" className="hover:text-secondary transition-colors duration-300">About</Link></li>
-                {/* <li><Link href="/" className="hover:text-secondary transition-colors duration-300">Skills</Link></li> */}
                 <li><Link href="/" className="hover:text-secondary transition-colors duration-300">Projects</Link></li>
-                <li><Link href="/" className="hover:text-secondary transition-colors duration-300">Achievements</Link></li>
+                <li><Link href="/contact" className="hover:text-secondary transition-colors duration-300">Achievements</Link></li>
             </ul>
             
             {/* Desktop Actions */}
@@ -91,7 +90,6 @@ export default function Navbar() {
                     <ul className='flex flex-col py-4'>
                         <li><Link href="/" className="block px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-300 text-gray-900 dark:text-white" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
                         <li><Link href="/" className="block px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-300 text-gray-900 dark:text-white" onClick={() => setIsMenuOpen(false)}>About</Link></li>
-                        {/* <li><Link href="/" className="block px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-300 text-gray-900 dark:text-white" onClick={() => setIsMenuOpen(false)}>Skills</Link></li> */}
                         <li><Link href="/" className="block px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-300 text-gray-900 dark:text-white" onClick={() => setIsMenuOpen(false)}>Projects</Link></li>
                         <li><Link href="/" className="block px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-300 text-gray-900 dark:text-white" onClick={() => setIsMenuOpen(false)}>Achievements</Link></li>
                         <li className='px-4 py-3'>
