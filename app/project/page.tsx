@@ -21,43 +21,33 @@ export default function ProjectPage() {
 
     const projects = [
         {
-            title: "SMEAN - Khmer NLP Platform",
-            description: "An AI-powered platform for Khmer language processing, including text analysis, translation, and natural language understanding.",
-            image: "/projects/smean.jpg", // Add your project images
-            technologies: ["Next.js", "TypeScript", "Python", "TensorFlow"],
-            category: "AI/ML",
-            github: "https://github.com/yourusername/smean",
-            demo: "https://smean.example.com",
-            featured: true
-        },
-        {
             title: "E-Commerce Platform",
             description: "Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.",
             image: "/projects/ecommerce.jpg",
             technologies: ["React", "Node.js", "MongoDB", "Stripe"],
             category: "Web Development",
             github: "https://github.com/yourusername/ecommerce",
-            demo: "https://demo.example.com",
+            // demo: "https://demo.example.com",
             featured: true
         },
         {
-            title: "Task Management App",
-            description: "Collaborative task management tool with real-time updates, team collaboration, and project tracking.",
-            image: "/projects/taskapp.jpg",
-            technologies: ["Next.js", "PostgreSQL", "Prisma", "Tailwind"],
+            title: "Real Estate Agency",
+            description: "Platform for selling property in Cambodia",
+            image: "/projects/realestate.jpg",
+            technologies: ["React.js", "PostgreSQL", "Tailwind"],
             category: "Web Development",
             github: "https://github.com/yourusername/taskapp",
-            demo: "https://taskapp.example.com",
+            // demo: "https://taskapp.example.com",
             featured: false
         },
         {
-            title: "Weather Dashboard",
-            description: "Real-time weather application with forecasts, interactive maps, and location-based alerts.",
+            title: "ACET Conference Management",
+            description: "Managing Conferences",
             image: "/projects/weather.jpg",
-            technologies: ["React", "API", "Chart.js", "Tailwind"],
+            technologies: ["React", "Laravel","Tailwind"],
             category: "Web Development",
             github: "https://github.com/yourusername/weather",
-            demo: "https://weather.example.com",
+            // demo: "https://weather.example.com",
             featured: false
         },
         {
@@ -70,16 +60,6 @@ export default function ProjectPage() {
             demo: "https://portfolio.example.com",
             featured: false
         },
-        {
-            title: "Chat Application",
-            description: "Real-time chat application with group messaging, file sharing, and emoji support.",
-            image: "/projects/chat.jpg",
-            technologies: ["React", "Socket.io", "Node.js", "MongoDB"],
-            category: "Web Development",
-            github: "https://github.com/yourusername/chat",
-            demo: "https://chat.example.com",
-            featured: false
-        }
     ];
 
     const categories = ['All', 'Web Development', 'Mobile'];

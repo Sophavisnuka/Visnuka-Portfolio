@@ -14,38 +14,6 @@ export default function AchievementPage() {
             color: "from-yellow-400 to-yellow-600"
         },
         {
-            icon: FaRocket,
-            title: "SMEAN Co-founder",
-            description: "Co-founded SMEAN, an AI-powered platform for Khmer language processing and NLP solutions.",
-            date: "2023",
-            category: "Entrepreneurship",
-            color: "from-blue-400 to-blue-600"
-        },
-        {
-            icon: FaCode,
-            title: "Hackathon Winner",
-            description: "First place in National Tech Hackathon for developing innovative education platform.",
-            date: "2023",
-            category: "Competition",
-            color: "from-purple-400 to-purple-600"
-        },
-        {
-            icon: FaCertificate,
-            title: "Full Stack Developer Certificate",
-            description: "Completed comprehensive full-stack development bootcamp covering modern web technologies.",
-            date: "2022",
-            category: "Certification",
-            color: "from-green-400 to-green-600"
-        },
-        {
-            icon: FaUsers,
-            title: "Tech Community Leader",
-            description: "Led university tech club with 100+ members, organizing workshops and coding events.",
-            date: "2022 - 2024",
-            category: "Leadership",
-            color: "from-red-400 to-red-600"
-        },
-        {
             icon: FaStar,
             title: "Open Source Contributor",
             description: "Active contributor to major open-source projects with 500+ GitHub contributions.",
@@ -53,29 +21,29 @@ export default function AchievementPage() {
             category: "Open Source",
             color: "from-indigo-400 to-indigo-600"
         },
-        {
-            icon: FaMedal,
-            title: "Best Student Project Award",
-            description: "Awarded for outstanding capstone project in Software Engineering program.",
-            date: "2024",
-            category: "Academic",
-            color: "from-pink-400 to-pink-600"
-        },
-        {
-            icon: FaAward,
-            title: "Tech Innovation Award",
-            description: "Recognized for innovative solutions contributing to Cambodia's tech ecosystem.",
-            date: "2024",
-            category: "Recognition",
-            color: "from-cyan-400 to-cyan-600"
-        }
+        // {
+        //     icon: FaMedal,
+        //     title: "Best Student Project Award",
+        //     description: "Awarded for outstanding capstone project in Software Engineering program.",
+        //     date: "2024",
+        //     category: "Academic",
+        //     color: "from-pink-400 to-pink-600"
+        // },
+        // {
+        //     icon: FaAward,
+        //     title: "Tech Innovation Award",
+        //     description: "Recognized for innovative solutions contributing to Cambodia's tech ecosystem.",
+        //     date: "2024",
+        //     category: "Recognition",
+        //     color: "from-cyan-400 to-cyan-600"
+        // }
     ];
 
     const stats = [
-        { number: "15+", label: "Projects Completed", icon: FaCode },
-        { number: "500+", label: "GitHub Contributions", icon: FaStar },
-        { number: "5", label: "Certifications", icon: FaCertificate },
-        { number: "3", label: "Awards Won", icon: FaTrophy }
+        { number: "5+", label: "Projects Completed", icon: FaCode },
+        { number: "491", label: "GitHub Contributions", icon: FaStar },
+        { number: "2", label: "Certifications", icon: FaCertificate },
+        { number: "0", label: "Awards Won", icon: FaTrophy }
     ];
 
     return (
