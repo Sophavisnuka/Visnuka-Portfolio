@@ -39,7 +39,7 @@ export default function Navbar() {
             {/* Desktop Menu */}
             <ul className='flex-1 text-primary hidden md:flex justify-center gap-8 lg:gap-[4rem] bg-white dark:bg-gray-800 shadow-sm py-2 px-5 rounded-lg'>
                 <li><Link href="/" className="hover:text-secondary transition-colors duration-300">Home</Link></li>
-                <li><Link href="/" className="hover:text-secondary transition-colors duration-300">About</Link></li>
+                <li><Link href="/about" className="hover:text-secondary transition-colors duration-300">About</Link></li>
                 <li><Link href="/" className="hover:text-secondary transition-colors duration-300">Projects</Link></li>
                 <li><Link href="/contact" className="hover:text-secondary transition-colors duration-300">Achievements</Link></li>
             </ul>
