@@ -21,23 +21,12 @@ export default function ProjectPage() {
 
     const projects = [
         {
-            title: "E-Commerce Platform",
-            description: "Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.",
-            image: "/projects/ecommerce.jpg",
-            technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-            category: "Web Development",
-            github: "https://github.com/yourusername/ecommerce",
-            // demo: "https://demo.example.com",
-            featured: true
-        },
-        {
             title: "Real Estate Agency",
             description: "Platform for selling property in Cambodia",
-            image: "/projects/realestate.jpg",
+            image: "/realestatewebsite.png",
             technologies: ["React.js", "PostgreSQL", "Tailwind"],
             category: "Web Development",
-            github: "https://github.com/yourusername/taskapp",
-            // demo: "https://taskapp.example.com",
+            github: "https://github.com/Sophavisnuka/real-estate-agency.git",
             featured: false
         },
         {
@@ -46,18 +35,17 @@ export default function ProjectPage() {
             image: "/projects/weather.jpg",
             technologies: ["React", "Laravel","Tailwind"],
             category: "Web Development",
-            github: "https://github.com/yourusername/weather",
-            // demo: "https://weather.example.com",
+            github: "https://github.com/Somawatey/ACET-Conference-Management-System.git",
             featured: false
         },
         {
             title: "Portfolio Website",
             description: "Personal portfolio website showcasing projects, skills, and experience with modern design.",
-            image: "/projects/portfolio.jpg",
+            image: "/portfolio.png",
             technologies: ["Next.js", "TypeScript", "Tailwind", "Framer Motion"],
             category: "Web Development",
-            github: "https://github.com/yourusername/portfolio",
-            demo: "https://portfolio.example.com",
+            github: "https://github.com/Sophavisnuka/Visnuka-Portfolio.git",
+            demo: "https://sophavisnukakhun.vercel.app/project",
             featured: false
         },
     ];

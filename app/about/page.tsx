@@ -16,7 +16,7 @@ export default function AboutPage() {
         {
             icon: Calendar,
             label: "Age",
-            value: "19 years old",
+            value: "20 years old",
             color: "text-green-500"
         },
         {
