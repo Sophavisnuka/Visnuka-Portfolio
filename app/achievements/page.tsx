@@ -21,22 +21,6 @@ export default function AchievementPage() {
             category: "Open Source",
             color: "from-indigo-400 to-indigo-600"
         },
-        // {
-        //     icon: FaMedal,
-        //     title: "Best Student Project Award",
-        //     description: "Awarded for outstanding capstone project in Software Engineering program.",
-        //     date: "2024",
-        //     category: "Academic",
-        //     color: "from-pink-400 to-pink-600"
-        // },
-        // {
-        //     icon: FaAward,
-        //     title: "Tech Innovation Award",
-        //     description: "Recognized for innovative solutions contributing to Cambodia's tech ecosystem.",
-        //     date: "2024",
-        //     category: "Recognition",
-        //     color: "from-cyan-400 to-cyan-600"
-        // }
     ];
 
     const stats = [
