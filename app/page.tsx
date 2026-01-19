@@ -2,6 +2,10 @@
 import { Download } from "lucide-react";
 import { useState } from "react";
 import GradientBackground from "@/components/gradientBackground";
+import AboutPage from "./about/page";
+import ProjectPage from "./project/page";
+import AchievementPage from "./achievements/page";
+
 import { 
     SiJavascript, 
     SiTypescript, 
@@ -20,7 +24,8 @@ import {
     SiAdobephotoshop,  // Photoshop
     SiAdobeaftereffects, // After Effects
     SiCanva,
-    SiFigma       
+    SiFigma,
+    SiFlutter      
 } from "react-icons/si";
 
 export default function HomePage() {
@@ -30,6 +35,7 @@ export default function HomePage() {
     // Add category for each tech
     const technologies = [
         // frontend technologies
+        { name: "Flutter", icon: SiFlutter, color: "text-blue-500", category: "Frontend" },
         { name: "JavaScript", icon: SiJavascript, color: "text-yellow-500", category: "Frontend" },
         { name: "TypeScript", icon: SiTypescript, color: "text-blue-600", category: "Frontend" },
         { name: "React", icon: SiReact, color: "text-cyan-500", category: "Frontend" },
@@ -81,7 +87,7 @@ export default function HomePage() {
                 <GradientBackground />
             </div>
             {/* All content now has z-10 or higher */}
-            <div className="group relative z-10 mb-8">
+            <div id="home" className="group relative z-10 mb-8">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur opacity-75 animate-pulse"></div>
                 <div 
                     className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full border-4 border-white dark:border-gray-200 shadow-2xl bg-cover bg-center bg-no-repeat hover:scale-105 transition-all duration-500 ease-in-out cursor-pointer backdrop-blur-sm" 
@@ -107,7 +113,7 @@ export default function HomePage() {
                     technologies I love working with.
                 </p>
                 <div className="mt-6 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
-                    <a href="/contact" className="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 rounded-lg border border-primary text-primary dark:text-primary hover:border-primary hover:bg-secondary hover:text-white text-sm sm:text-base font-medium transition-all duration-300">
+                    <a href="/Khun-Sophavisnuka-CV.pdf" download className="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 rounded-lg border border-primary text-primary dark:text-primary hover:border-primary hover:bg-secondary hover:text-white text-sm sm:text-base font-medium transition-all duration-300">
                         <div className="flex items-center gap-2 justify-center">
                             My Resume
                             <Download className="w-5 h-5" />
@@ -116,7 +122,7 @@ export default function HomePage() {
                 </div>
             </div>
             {/* Tech Stack Section */}
-            <div className="techStack mt-20 max-w-6xl px-4 relative z-10">
+            <div id="techStack" className="techStack mt-20 max-w-6xl px-4 relative z-10">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Technologies & Skills</h1>
                 <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-8">Here are some of the technologies and tools I work with:</p>
                 {/* filter button */}
@@ -151,13 +157,17 @@ export default function HomePage() {
                     })}
                 </div>
             </div>
-            {/* Get in touch */}
-            <div className="getInTouch mt-30 mb-20 text-center relative z-10">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Connect with me</h2>
-                <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-xl mx-auto px-4">Let's get in touch and build an innovative project together!</p>
-                <button className="bg-primary dark:bg-gray-700 cursor-pointer dark:text-primary px-12 py-3 rounded-lg border border-primary text-white hover:bg-secondary hover:border-secondary hover:text-white text-sm sm:text-base font-medium transition-all duration-300">
-                    <a href="/contact">Hire me</a>
-                </button>
+            {/* About me page */}
+            <div id="about" className="getInTouch mt-10 mb-20 text-center relative z-10">
+                <AboutPage />
+            </div>
+            {/* project page */}
+            <div id="project" className="getInTouch mt-10 mb-20 text-center relative z-10">
+                <ProjectPage />
+            </div>
+            {/* achievement page */}
+            <div id="achievement" className="getInTouch mt-10 mb-20 text-center relative z-10">
+                <AchievementPage />
             </div>
             
             {/* Modal - Fixed z-index and moved outside main content */}
