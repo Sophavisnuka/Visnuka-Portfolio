@@ -5,6 +5,7 @@ import { useTheme } from 'next-themes';
 
 import Link from 'next/link';
 
+
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
@@ -38,26 +39,16 @@ export default function Navbar() {
             
             {/* Desktop Menu */}
             <ul className='flex-1 text-primary hidden md:flex justify-center gap-8 lg:gap-[4rem] bg-white dark:bg-gray-800 shadow-sm py-2 px-5 rounded-lg'>
-                <li><Link href="/" className="hover:text-secondary transition-colors duration-300">Home</Link></li>
-                <li><Link href="/about" className="hover:text-secondary transition-colors duration-300">About</Link></li>
-                <li><Link href="/project" className="hover:text-secondary transition-colors duration-300">Projects</Link></li>
-                <li><Link href="/achievements" className="hover:text-secondary transition-colors duration-300">Achievements</Link></li>
+                <li><Link href="/#home" className="hover:text-secondary transition-colors duration-300">Home</Link></li>
+                <li><Link href="/#about" className="hover:text-secondary transition-colors duration-300">About</Link></li>
+                <li><Link href="/#project" className="hover:text-secondary transition-colors duration-300">Projects</Link></li>
+                <li><Link href="/#achievements" className="hover:text-secondary transition-colors duration-300">Volunteer</Link></li>
             </ul>
             
             {/* Desktop Actions */}
             <div className="flex-1 flex justify-end items-center gap-4">
-                <button 
-                    onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                    className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
-                >
-                    {theme === 'dark' ? (
-                        <Sun className="w-5 h-5 text-yellow-500" />
-                    ) : (
-                        <Moon className="w-5 h-5 text-gray-700 dark:text-gray-300" />
-                    )}
-                </button>
                 <Link href="/contact" className='hidden md:flex items-center gap-2 px-4 lg:px-5 py-2 lg:py-3 rounded-lg text-white font-semibold bg-primary hover:bg-secondary transition-all duration-300 ease-in-out text-sm lg:text-base'>
-                    Contact
+                    Contact me
                     <MoveUpRight className="w-4 h-4" />
                 </Link>
             </div>

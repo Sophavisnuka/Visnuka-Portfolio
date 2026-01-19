@@ -24,7 +24,7 @@ export default function Footer() {
         {
             name: "Telegram",
             icon: SiTelegram,
-            href: "https://t.me/sophavisnuka1936",
+            href: "https://t.me/Sophavisnuka1936",
             color: "hover:text-blue-500"
         }
     ];

@@ -13,7 +13,8 @@ import {
     SiPostgresql,
     SiMongodb,
     SiExpress,
-    SiLaravel
+    SiLaravel,
+    SiFlutter,
 } from 'react-icons/si';
 
 export default function ProjectPage() {
@@ -21,8 +22,18 @@ export default function ProjectPage() {
 
     const projects = [
         {
+            title: "Smean Mobile App",
+            description: "A Mobile App that convert audio to text in Khmer or English",
+            image: "/smean.png",
+            technologies: ["Flutter"],
+            category: "Mobile",
+            github: "https://github.com/Sophavisnuka/Smean-Mobile-App.git",
+            demo: "https://sophavisnukakhun.vercel.app/project",
+            featured: false
+        },
+        {
             title: "Real Estate Agency",
-            description: "Platform for selling property in Cambodia",
+            description: "Platform for viewing all property in Cambodia",
             image: "/realestatewebsite.png",
             technologies: ["React.js", "PostgreSQL", "Tailwind"],
             category: "Web Development",
@@ -31,12 +42,32 @@ export default function ProjectPage() {
         },
         {
             title: "ACET Conference Management",
-            description: "Managing Conferences",
-            image: "/projects/weather.jpg",
+            description: "A website for researcher to submit research paper and managing Conferences",
+            image: "/Acet.png",
             technologies: ["React", "Laravel","Tailwind"],
             category: "Web Development",
             github: "https://github.com/Somawatey/ACET-Conference-Management-System.git",
             featured: false
+        },
+        {
+            title: "CADT Social Link",
+            description: "A Website that list all social media of CSA(CADT Student Association).",
+            image: "/cadt-social-link.png",
+            technologies: ["React","Tailwind"],
+            category: "Web Development",
+            github: "https://github.com/Sophavisnuka/CADT-Social-Link.git",
+            demo: "https://cadt-social-media.netlify.app/",
+            featured: true
+        },
+        {
+            title: "QuizDo (Small quiz website)",
+            description: "A Simple website to do quiz to test your general knowledge",
+            image: "/quizDo.png",
+            technologies: ["React","Tailwind"],
+            category: "Web Development",
+            github: "https://github.com/Sophavisnuka/QuizDo.git",
+            demo: "https://quizdo-react.vercel.app/",
+            featured: true
         },
         {
             title: "Portfolio Website",
@@ -46,7 +77,7 @@ export default function ProjectPage() {
             category: "Web Development",
             github: "https://github.com/Sophavisnuka/Visnuka-Portfolio.git",
             demo: "https://sophavisnukakhun.vercel.app/project",
-            featured: false
+            featured: true
         },
     ];
 
@@ -67,7 +98,8 @@ export default function ProjectPage() {
             'PostgreSQL': SiPostgresql,
             'MongoDB': SiMongodb,
             'Express': SiExpress,
-            'Laravel': SiLaravel
+            'Laravel': SiLaravel,
+            'Flutter': SiFlutter
         };
         return iconMap[tech] || FaCode;
     };
@@ -119,7 +151,7 @@ export default function ProjectPage() {
                             <div className="relative h-48 bg-gradient-to-br from-primary/20 to-secondary/20 overflow-hidden">
                                 {project.featured && (
                                     <div className="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-bold z-10">
-                                        Featured
+                                        Demo
                                     </div>
                                 )}
                                 <img
