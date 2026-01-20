@@ -1,33 +1,42 @@
 'use client';
 
 import GradientBackground from "@/components/gradientBackground";
-import { FaTrophy, FaMedal, FaCertificate, FaStar, FaAward, FaCode, FaUsers, FaRocket } from 'react-icons/fa';
+import {FaStar, FaRocket } from 'react-icons/fa';
 
 export default function AchievementPage() {
     const achievements = [
         {
-            icon: FaTrophy,
-            title: "Dean's List",
-            description: "Recognized for academic excellence with GPA above 3.5 throughout university career.",
-            date: "2022 - 2024",
+            image: "/ngbt.jpg",
+            title: "Next-Gen Engagement Program-Batch II",
+            description: "Certificate for volunteer as a trainer that teach freshmen student in CADT",
+            date: "2021 - Present",
             category: "Academic",
             color: "from-yellow-400 to-yellow-600"
         },
         {
-            icon: FaStar,
-            title: "Open Source Contributor",
-            description: "Active contributor to major open-source projects with 500+ GitHub contributions.",
+            image: "/cfcc.jpg",
+            title: "CADT Freshman Coding Championship",
+            description: "I have volunteered as a Graphic designer and program coordinate for CFCC in CADT to promote the event and other activities",
+            date: "2021 - Present",
+            category: "Academic",
+            color: "from-indigo-400 to-indigo-600"
+        },
+        {
+            image: "/Java-certify.png",
+            title: "Java Basic",
+            description: "Completed the short course of Java basic",
             date: "2021 - Present",
             category: "Open Source",
             color: "from-indigo-400 to-indigo-600"
         },
-    ];
-
-    const stats = [
-        { number: "5+", label: "Projects Completed", icon: FaCode },
-        { number: "491", label: "GitHub Contributions", icon: FaStar },
-        { number: "2", label: "Certifications", icon: FaCertificate },
-        { number: "0", label: "Awards Won", icon: FaTrophy }
+        {
+            image: "/csaSangkran.jpg",
+            title: "Sangkran CADT",
+            description: "Certificate of appreciation for volunteering in Sangkran CADT",
+            date: "2021 - Present",
+            category: "Open Source",
+            color: "from-indigo-400 to-indigo-600"
+        },
     ];
 
     return (
@@ -48,42 +57,20 @@ export default function AchievementPage() {
                     </p>
                 </div>
 
-                {/* Stats Section */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-                    {stats.map((stat, index) => {
-                        const Icon = stat.icon;
-                        return (
-                            <div
-                                key={index}
-                                className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl p-6 text-center shadow-xl border border-gray-200/50 dark:border-gray-700/50 hover:transform hover:scale-105 transition-all duration-300"
-                            >
-                                <Icon className="w-8 h-8 text-primary mx-auto mb-3" />
-                                <div className="text-3xl font-bold text-gray-900 dark:text-white mb-1">
-                                    {stat.number}
-                                </div>
-                                <div className="text-sm text-gray-600 dark:text-gray-400">
-                                    {stat.label}
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
-
                 {/* Achievements Grid */}
                 <div className="grid md:grid-cols-2 gap-8">
                     {achievements.map((achievement, index) => {
-                        const Icon = achievement.icon;
                         return (
                             <div
                                 key={index}
                                 className="group bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 hover:transform hover:scale-105 border border-gray-200/50 dark:border-gray-700/50"
                             >
-                                <div className="flex items-start gap-4">
-                                    {/* Icon */}
-                                    <div className={`flex-shrink-0 w-16 h-16 rounded-xl bg-gradient-to-br ${achievement.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                                        <Icon className="w-8 h-8 text-white" />
-                                    </div>
-
+                                <div className="">
+                                    <img className="w-full h-full object-cover"
+                                        src={achievement.image} alt=""
+                                    />
+                                </div>
+                                <div className="mt-5 items-start gap-4">
                                     {/* Content */}
                                     <div className="flex-1">
                                         <div className="flex items-start justify-between mb-2">
@@ -94,13 +81,9 @@ export default function AchievementPage() {
                                                 {achievement.category}
                                             </span>
                                         </div>
-                                        <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
+                                        <p className="text-start text-gray-600 dark:text-gray-400 text-sm mb-3">
                                             {achievement.description}
                                         </p>
-                                        <div className="flex items-center text-gray-500 dark:text-gray-500 text-sm">
-                                            <FaStar className="w-3 h-3 mr-2" />
-                                            {achievement.date}
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -111,10 +94,10 @@ export default function AchievementPage() {
                 {/* Call to Action */}
                 <div className="mt-16 text-center bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 border border-primary/20">
                     <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                        Want to collaborate?
+                        I am open and looking for internship opportunity for both web and mobile development
                     </h2>
                     <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
-                        I'm always open to new opportunities and exciting projects. Let's create something amazing together!
+                        Let's create something amazing together!
                     </p>
                     <a
                         href="/contact"

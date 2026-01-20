@@ -105,7 +105,7 @@ export default function HomePage() {
             <div className="HeroContent max-w-4xl relative z-10">
                 <div>
                     <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">Khun Sophavisnuka</h1>
-                    <p className="text-sm sm:text-base md:text-lg font-semibold mt-2 text-gray-700 dark:text-gray-300">Software Engineering</p>
+                    <p className="text-sm sm:text-base md:text-lg font-semibold mt-2 text-gray-700 dark:text-gray-300">Software Engineering | Looking for internship opportunity for both web and app </p>
                 </div>
                 <p className="text-sm sm:text-base md:text-lg text-gray-500 dark:text-gray-400 max-w-sm sm:max-w-md md:max-w-xl lg:max-w-2xl mt-4 px-2">
                     I'm a fullstack developer passionate about building modern, user-friendly

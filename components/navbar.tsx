@@ -42,7 +42,7 @@ export default function Navbar() {
                 <li><Link href="/#home" className="hover:text-secondary transition-colors duration-300">Home</Link></li>
                 <li><Link href="/#about" className="hover:text-secondary transition-colors duration-300">About</Link></li>
                 <li><Link href="/#project" className="hover:text-secondary transition-colors duration-300">Projects</Link></li>
-                <li><Link href="/#achievements" className="hover:text-secondary transition-colors duration-300">Volunteer</Link></li>
+                <li><Link href="/#achievement" className="hover:text-secondary transition-colors duration-300">Volunteer</Link></li>
             </ul>
             
             {/* Desktop Actions */}
