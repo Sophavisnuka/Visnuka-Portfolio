@@ -2,9 +2,18 @@
 import { useState } from 'react';
 import GradientBackground from "@/components/gradientBackground";
 import { Calendar, MapPin, GraduationCap, User, Code, Heart } from 'lucide-react';
+import { FaTrophy, FaMedal, FaCertificate, FaStar, FaAward, FaCode, FaUsers, FaRocket } from 'react-icons/fa';
+
 
 export default function AboutPage() {
     const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+
+    const stats = [
+        { number: "5+", label: "Projects Completed", icon: FaCode },
+        { number: "491", label: "GitHub Contributions", icon: FaStar },
+        { number: "2", label: "Certifications", icon: FaCertificate },
+        { number: "0", label: "Awards Won", icon: FaTrophy }
+    ];
 
     const personalInfo = [
         {
@@ -67,6 +76,27 @@ export default function AboutPage() {
                     <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                         Get to know more about who I am, my background, and what drives my passion for technology.
                     </p>
+                </div>
+
+                {/* Stats Section */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+                    {stats.map((stat, index) => {
+                        const Icon = stat.icon;
+                        return (
+                            <div
+                                key={index}
+                                className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl p-6 text-center shadow-xl border border-gray-200/50 dark:border-gray-700/50 hover:transform hover:scale-105 transition-all duration-300"
+                            >
+                                <Icon className="w-8 h-8 text-primary mx-auto mb-3" />
+                                <div className="text-3xl font-bold text-gray-900 dark:text-white mb-1">
+                                    {stat.number}
+                                </div>
+                                <div className="text-sm text-gray-600 dark:text-gray-400">
+                                    {stat.label}
+                                </div>
+                            </div>
+                        );
+                    })}
                 </div>
 
                 {/* Main Content */}
