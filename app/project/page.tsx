@@ -38,7 +38,8 @@ export default function ProjectPage() {
             technologies: ["React.js", "PostgreSQL", "Tailwind"],
             category: "Web Development",
             github: "https://github.com/Sophavisnuka/real-estate-agency.git",
-            featured: false
+            demo: "https://arch-daily-agency.vercel.app/",
+            featured: true
         },
         {
             title: "ACET Conference Management",
@@ -60,13 +61,13 @@ export default function ProjectPage() {
             featured: true
         },
         {
-            title: "QuizDo (Small quiz website)",
-            description: "A Simple website to do quiz to test your general knowledge",
-            image: "/quizDo.png",
+            title: "Automata Calculation",
+            description: "A Simple website that let CADT Student in year2 can calculate and generate the image for automata course",
+            image: "/automata.png",
             technologies: ["React","Tailwind"],
             category: "Web Development",
             github: "https://github.com/Sophavisnuka/QuizDo.git",
-            demo: "https://quizdo-react.vercel.app/",
+            demo: "https://automata-fawn.vercel.app/",
             featured: true
         },
         {
