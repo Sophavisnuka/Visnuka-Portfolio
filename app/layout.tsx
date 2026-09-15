@@ -1,9 +1,7 @@
 import "./globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider} from "next-themes";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
-import Contact from "@/app/contact/page";
+import Sidebar from "@/components/sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,16 +20,17 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html 
+    <html
       lang="en"
       suppressHydrationWarning
       className="scroll-smooth"
     >
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          <Navbar />
-          {children}
-          <Footer />
+          <Sidebar />
+          <div className="lg:pl-64 xl:pl-72">
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>

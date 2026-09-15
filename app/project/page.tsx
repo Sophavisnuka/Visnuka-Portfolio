@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import GradientBackground from "@/components/gradientBackground";
 import { FaGithub, FaExternalLinkAlt, FaCode, FaFilter } from 'react-icons/fa';
 import { 
     SiReact, 
@@ -24,7 +23,7 @@ export default function ProjectPage() {
         {
             title: "Smean Mobile App",
             description: "A Mobile App that convert audio to text in Khmer or English",
-            image: "/smean.png",
+            image: "/other/smean.png",
             technologies: ["Flutter"],
             category: "Mobile",
             github: "https://github.com/Sophavisnuka/Smean-Mobile-App.git",
@@ -34,7 +33,7 @@ export default function ProjectPage() {
         {
             title: "Real Estate Agency",
             description: "Platform for viewing all property in Cambodia",
-            image: "/realestatewebsite.png",
+            image: "/other/realestatewebsite.png",
             technologies: ["React.js", "PostgreSQL", "Tailwind"],
             category: "Web Development",
             github: "https://github.com/Sophavisnuka/real-estate-agency.git",
@@ -44,7 +43,7 @@ export default function ProjectPage() {
         {
             title: "ACET Conference Management",
             description: "A website for researcher to submit research paper and managing Conferences",
-            image: "/Acet.png",
+            image: "/other/Acet.png",
             technologies: ["React", "Laravel","Tailwind"],
             category: "Web Development",
             github: "https://github.com/Somawatey/ACET-Conference-Management-System.git",
@@ -53,7 +52,7 @@ export default function ProjectPage() {
         {
             title: "CADT Social Link",
             description: "A Website that list all social media of CSA(CADT Student Association).",
-            image: "/cadt-social-link.png",
+            image: "/other/cadt-social-link.png",
             technologies: ["React","Tailwind"],
             category: "Web Development",
             github: "https://github.com/Sophavisnuka/CADT-Social-Link.git",
@@ -63,7 +62,7 @@ export default function ProjectPage() {
         {
             title: "Automata Calculation",
             description: "A Simple website that let CADT Student in year2 can calculate and generate the image for automata course",
-            image: "/automata.png",
+            image: "/other/automata.png",
             technologies: ["React","Tailwind"],
             category: "Web Development",
             github: "https://github.com/Sophavisnuka/QuizDo.git",
@@ -73,7 +72,7 @@ export default function ProjectPage() {
         {
             title: "Portfolio Website",
             description: "Personal portfolio website showcasing projects, skills, and experience with modern design.",
-            image: "/portfolio.png",
+            image: "/other/portfolio.png",
             technologies: ["Next.js", "TypeScript", "Tailwind", "Framer Motion"],
             category: "Web Development",
             github: "https://github.com/Sophavisnuka/Visnuka-Portfolio.git",
@@ -106,12 +105,7 @@ export default function ProjectPage() {
     };
 
     return (
-        <div className="relative min-h-screen bg-gray-50 dark:bg-gray-900 pt-20 pb-12 px-4 sm:pt-24 sm:pb-14">
-            {/* Background */}
-            <div className="absolute inset-0 z-0">
-                <GradientBackground />
-            </div>
-
+        <div className="relative min-h-screen bg-gray-50 dark:bg-gray-900 pt-20 pb-12 px-4 sm:pt-24 sm:pb-14 lg:pt-12">
             <div className="relative z-10 max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-12">
@@ -149,7 +143,7 @@ export default function ProjectPage() {
                             className="group bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:transform hover:scale-105 border border-gray-200/50 dark:border-gray-700/50"
                         >
                             {/* Project Image */}
-                            <div className="relative h-48 bg-gradient-to-br from-primary/20 to-secondary/20 overflow-hidden">
+                            <div className="relative h-48 bg-primary/10 overflow-hidden">
                                 {project.featured && (
                                     <div className="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-bold z-10">
                                         Demo
