@@ -1,5 +1,4 @@
 'use client';
-import GradientBackground from "@/components/gradientBackground";
 import { useState } from 'react';
 import { Send, User, Mail, MessageSquare, Phone, MapPin } from 'lucide-react';
 import { 
@@ -104,10 +103,7 @@ export default function ContactPage() {
     ];
 
     return (
-        <div className="relative min-h-screen dark:bg-gray-900 pt-20 pb-12 px-4 sm:pt-24 sm:pb-14">
-            {/* <div className="absolute inset-0 z-0">
-                <GradientBackground />
-            </div> */}
+        <div className="relative min-h-screen dark:bg-gray-900 pt-20 pb-12 px-4 sm:pt-24 sm:pb-14 lg:pt-12">
             <div className="max-w-7xl mx-auto z-10">
                 {/* Header */}
                 <div className="text-center mb-12">
@@ -291,7 +287,7 @@ export default function ContactPage() {
                         </div>
 
                         {/* Response Time */}
-                        <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-6 sm:p-8 border border-primary/20">
+                        <div className="bg-primary/5 rounded-2xl p-6 sm:p-8 border border-primary/20">
                             <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Quick Response</h3>
                             <p className="text-gray-600 dark:text-gray-400 mb-4">
                                 I typically respond to messages within 24 hours. For urgent matters, feel free to reach out via Telegram.
