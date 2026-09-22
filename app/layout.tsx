@@ -28,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <Sidebar />
-          <div className="lg:pl-64 xl:pl-72">
+          <div className="lg:pl-[35%]">
             {children}
           </div>
         </ThemeProvider>

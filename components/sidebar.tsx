@@ -8,10 +8,10 @@ import { SiGithub, SiLinkedin, SiTelegram } from "react-icons/si";
 
 const navLinks = [
     { id: 'home', label: 'Home', href: '/#home' },
-    { id: 'about', label: 'About', href: '/#about' },
-    { id: 'experience', label: 'Work Experience', href: '/#experience' },
     { id: 'project', label: 'Projects', href: '/#project' },
     { id: 'posters', label: 'Posters', href: '/#posters' },
+    { id: 'about', label: 'About', href: '/#about' },
+    { id: 'experience', label: 'Work Experience', href: '/#experience' },
     { id: 'achievement', label: 'Achievements', href: '/#achievement' },
 ];
 
@@ -19,6 +19,13 @@ const socialLinks = [
     { name: "GitHub", icon: SiGithub, href: "https://github.com/Sophavisnuka" },
     { name: "LinkedIn", icon: SiLinkedin, href: "https://www.linkedin.com/in/sophavisnukakhun190306/" },
     { name: "Telegram", icon: SiTelegram, href: "https://t.me/sophavisnuka1936" },
+];
+
+const galleryImages = [
+    "/me/DSC03306.JPG",
+    "/me/IMG_0008.JPG",
+    "/me/dgf.jpg",
+    "/me/Next-Gen.png",
 ];
 
 export default function Sidebar() {
@@ -39,19 +46,23 @@ export default function Sidebar() {
             .map((link) => document.getElementById(link.id))
             .filter((el): el is HTMLElement => el !== null);
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setActiveSection(entry.target.id);
-                    }
-                });
-            },
-            { rootMargin: '-40% 0px -50% 0px', threshold: 0 }
-        );
+        const offset = 150; // px from top of viewport that counts as "reached"
 
-        sections.forEach((section) => observer.observe(section));
-        return () => observer.disconnect();
+        const handleScroll = () => {
+            let current = sections[0]?.id ?? 'home';
+
+            for (const section of sections) {
+                if (section.getBoundingClientRect().top - offset <= 0) {
+                    current = section.id;
+                }
+            }
+
+            setActiveSection(current);
+        };
+
+        handleScroll();
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
     }, [pathname]);
 
     if (!isMounted) {
@@ -61,10 +72,10 @@ export default function Sidebar() {
     const isContactActive = pathname === '/contact';
 
     const linkClass = (active: boolean) =>
-        `block px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+        `block text-sm transition-colors duration-300 ${
             active
-                ? 'bg-primary text-white dark:bg-white dark:text-black'
-                : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900'
+                ? 'text-gray-900 dark:text-white font-semibold'
+                : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
         }`;
 
     return (
@@ -120,59 +131,49 @@ export default function Sidebar() {
                 </div>
             )}
 
-            {/* Desktop sticky sidebar */}
-            <aside className="hidden lg:flex flex-col fixed top-0 left-0 h-screen w-64 xl:w-72 px-6 py-10 border-r border-gray-200 dark:border-gray-800 bg-white dark:bg-black z-40 overflow-y-auto">
-                <div className="flex flex-col items-center text-center">
-                    <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 border-white dark:border-gray-700 shadow-lg">
-                        <img src="/me/DSC03306.JPG" alt="Khun Sophavisnuka" className="w-full h-full object-cover" />
-                    </div>
-                    <h1 className="mt-4 text-lg font-bold text-gray-900 dark:text-white">Khun Sophavisnuka</h1>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">@sophavisnuka</p>
-                </div>
-
-                <nav className="mt-10 flex-1">
-                    <ul className="flex flex-col gap-1">
-                        {navLinks.map((link) => (
-                            <li key={link.id}>
-                                <Link href={link.href} className={linkClass(pathname === '/' && activeSection === link.id)}>
-                                    {link.label}
+            {/* Desktop sticky sidebar - 35% width, text-led like the Sera reference */}
+            <aside className="hidden lg:flex flex-col fixed top-0 left-0 h-screen w-[35%] border-r border-gray-200 dark:border-gray-800 bg-white dark:bg-black z-40 overflow-y-auto">
+                <div className="flex flex-col h-full px-8 xl:px-12 py-5">
+                    {/* Nav - plain text list, no pill backgrounds */}
+                    <nav>
+                        <ul className="flex justify-between gap-5">
+                            {navLinks.map((link) => (
+                                <li key={link.id}>
+                                    <Link href={link.href} className={linkClass(pathname === '/' && activeSection === link.id)}>
+                                        {link.label}
+                                    </Link>
+                                </li>
+                            ))}
+                            <li>
+                                <Link href="/contact" className={linkClass(isContactActive)}>
+                                    Contact
                                 </Link>
                             </li>
-                        ))}
-                        <li>
-                            <Link href="/contact" className={linkClass(isContactActive)}>
-                                Contact
-                            </Link>
-                        </li>
-                    </ul>
-                </nav>
+                        </ul>
+                    </nav>
 
-                <div className="flex flex-col items-center gap-4">
-                    <a
-                        href="/other/Khun-Sophavisnuka-CV.pdf"
-                        download
-                        className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-primary text-primary dark:text-white dark:border-white text-sm font-medium hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300"
-                    >
-                        Resume <Download className="w-4 h-4" />
-                    </a>
-                    <div className="flex items-center gap-3">
-                        {socialLinks.map((social) => {
-                            const Icon = social.icon;
-                            return (
-                                <a
-                                    key={social.name}
-                                    href={social.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label={social.name}
-                                    className="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors duration-300"
-                                >
-                                    <Icon className="w-5 h-5" />
-                                </a>
-                            );
-                        })}
+                    {/* Photo grid */}
+                    {/* <div className="mt-8 grid grid-cols-2 gap-2">
+                        {galleryImages.map((src) => (
+                            <div key={src} className="relative aspect-square rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-900">
+                                <img src={src} alt="Khun Sophavisnuka" className="w-full h-full object-cover" />
+                            </div>
+                        ))}
+                    </div> */}
+
+                    <div className="flex-1" />
+
+                    {/* Resume + footer */}
+                    <div className="mt-10 pt-6 border-t border-gray-200 dark:border-gray-800">
+                        <a
+                            href="/other/Khun-Sophavisnuka-CV.pdf"
+                            download
+                            className="inline-flex items-center gap-2 text-sm font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-gray-300 transition-colors duration-300"
+                        >
+                            Resume <Download className="w-4 h-4" />
+                        </a>
+                        <span className="mt-4 block text-xs text-gray-400 dark:text-gray-600">© 2025 Sophavisnuka</span>
                     </div>
-                    <span className="text-xs text-gray-400 dark:text-gray-600">© 2025 Sophavisnuka</span>
                 </div>
             </aside>
         </>
