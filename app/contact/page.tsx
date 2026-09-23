@@ -106,11 +106,11 @@ export default function ContactPage() {
         <div className="relative min-h-screen dark:bg-gray-900 pt-20 pb-12 px-4 sm:pt-24 sm:pb-14 lg:pt-12">
             <div className="max-w-7xl mx-auto z-10">
                 {/* Header */}
-                <div className="text-center mb-12">
+                <div className="text-start mb-12">
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
                         Let's Get In Touch
                     </h1>
-                    <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    <p className="text-lg text-start text-gray-600 dark:text-gray-400 max-w-2xl">
                         I'd love to hear from you! Send me a message and I'll respond as soon as possible.
                     </p>
                 </div>

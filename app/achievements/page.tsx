@@ -6,25 +6,25 @@ export default function AchievementPage() {
         {
             title: "Next-Gen Engagement Program-Batch II",
             description: "Certificate for volunteer as a trainer that teach freshmen student in CADT",
-            date: "2021 - Present",
+            date: "September 2025",
             category: "Academic",
         },
         {
             title: "CADT Freshman Coding Championship",
             description: "I have volunteered as a Graphic designer and program coordinate for CFCC in CADT to promote the event and other activities",
-            date: "2021 - Present",
+            date: "August 2025",
             category: "Academic",
         },
         {
             title: "Java Basic",
             description: "Completed the short course of Java basic",
-            date: "2021 - Present",
+            date: "January 2025",
             category: "Open Source",
         },
         {
             title: "Sangkran CADT",
             description: "Certificate of appreciation for volunteering in Sangkran CADT",
-            date: "2021 - Present",
+            date: "April 2025",
             category: "Open Source",
         },
     ];

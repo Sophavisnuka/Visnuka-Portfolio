@@ -1,9 +1,8 @@
 import AboutPage from "./about/page";
 import ExperiencePage from "./experience/page";
 import ProjectPage from "./project/page";
-import PostersPreview from "@/components/postersPreview";
 import AchievementPage from "./achievements/page";
-
+import { Download } from "lucide-react";
 import {
     SiJavascript,
     SiTypescript,
@@ -29,6 +28,7 @@ import {
     SiInstagram
 } from "react-icons/si";
 import { FaRocket } from 'react-icons/fa';
+import PostersPage from "./posters/page";
 const technologies = [
     { name: "Flutter", icon: SiFlutter, color: "text-blue-500" },
     { name: "JavaScript", icon: SiJavascript, color: "text-yellow-500" },
@@ -63,7 +63,7 @@ export default function HomePage() {
         <section className="HeroSection relative flex flex-col min-h-screen sm:pt-24 sm:pb-14 lg:pt-5 bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-all duration-500 overflow-hidden">
             {/* Name & intro */}
             <div className="px-5 flex gap-5">
-                <div id="home" className="bg-gray-50 dark:bg-gray-800 p-5 rounded-lg flex flex-col flex-2 items-start justify-start relative z-10 text-left sm:px-10 lg:px-14">
+                <div id="home" className="bg-gray-100 dark:bg-gray-800 p-5 rounded-lg flex flex-col flex-2 items-start justify-start relative z-10 text-left sm:px-10 lg:px-14">
                     <div className="flex items-center gap-3">
                         <div className="relative w-11 h-11 rounded-full overflow-hidden shrink-0">
                             <img src="/me/DSC03306.JPG" alt="Khun Sophavisnuka" className="w-full h-full object-cover" />
@@ -84,13 +84,22 @@ export default function HomePage() {
                         <p className="text-gray-600 dark:text-gray-400 mb-4 max-w-xl">
                             Let's create something amazing together!
                         </p>
-                        <a
-                            href="/contact"
-                            className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary text-white dark:bg-white dark:text-black rounded-lg hover:bg-secondary dark:hover:bg-gray-300 transition-colors duration-300 font-semibold"
-                        >
-                            Get In Touch
-                            <FaRocket className="w-4 h-4" />
-                        </a>
+                        <div className="flex flex-wrap gap-3">
+                            <a
+                                href="/other/Khun-Sophavisnuka-CV.pdf"
+                                download
+                                className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary text-white dark:bg-white dark:text-black rounded-lg hover:bg-secondary dark:hover:bg-gray-300 transition-colors duration-300 font-semibold"
+                            >
+                                Resume <Download className="w-4 h-4" />
+                            </a>
+                            <a
+                                href="/contact"
+                                className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary text-white dark:bg-white dark:text-black rounded-lg hover:bg-secondary dark:hover:bg-gray-300 transition-colors duration-300 font-semibold"
+                            >
+                                Get In Touch
+                                <FaRocket className="w-4 h-4" />
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div className="flex flex-col flex-1 gap-4">
@@ -102,7 +111,7 @@ export default function HomePage() {
                                 href={social.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 p-5 rounded-lg flex items-center justify-between transition-colors duration-300"
+                                className="group bg-gray-100 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 p-5 rounded-lg flex items-center justify-between transition-colors duration-300"
                             >
                                 <span className="font-medium text-gray-900 dark:text-white">{social.name}</span>
                                 <Icon className="w-5 h-5 text-gray-500 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300" />
@@ -114,7 +123,7 @@ export default function HomePage() {
 
             {/* Tech Stack Section - icon-only infinite scroll */}
             <div className="px-5">
-                <div id="techStack" className="bg-gray-50 dark:bg-gray-800 rounded-lg mt-12 py-8 relative z-10 overflow-hidden">
+                <div id="techStack" className="bg-gray-100 dark:bg-gray-800 rounded-lg mt-12 py-8 relative z-10 overflow-hidden">
                     <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
                         {[...technologies, ...technologies].map((tech, index) => {
                             const IconComponent = tech.icon;
@@ -137,7 +146,7 @@ export default function HomePage() {
             </div>
             {/* posters page (freelance) */}
             <div id="posters" className="relative z-10">
-                <PostersPreview />
+                <PostersPage />
             </div>
             {/* About me page */}
             <div id="about" className="relative z-10">
