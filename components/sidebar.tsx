@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { SiGithub, SiLinkedin, SiTelegram } from "react-icons/si";
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 const navLinks = [
     { id: 'home', label: 'Home', href: '/#home' },
@@ -15,10 +15,25 @@ const navLinks = [
     { id: 'achievement', label: 'Achievements', href: '/#achievement' },
 ];
 
-const socialLinks = [
-    { name: "GitHub", icon: SiGithub, href: "https://github.com/Sophavisnuka" },
-    { name: "LinkedIn", icon: SiLinkedin, href: "https://www.linkedin.com/in/sophavisnukakhun190306/" },
-    { name: "Telegram", icon: SiTelegram, href: "https://t.me/sophavisnuka1936" },
+const contactInfo = [
+    {
+        icon: Mail,
+        label: "Email",
+        value: "sophavisnukakhun@gmail.com",
+        href: "mailto:sophavisnukakhun@gmail.com"
+    },
+    {
+        icon: Phone,
+        label: "Phone",
+        value: "+855 16 260 218", // Replace with your phone
+        href: "tel:+85516260218"
+    },
+    {
+        icon: MapPin,
+        label: "Location",
+        value: "Phnom Penh, Cambodia", // Replace with your location
+        href: "#"
+    }
 ];
 
 const galleryImages = [
@@ -153,27 +168,43 @@ export default function Sidebar() {
                     </nav>
 
                     {/* Photo grid */}
-                    {/* <div className="mt-8 grid grid-cols-2 gap-2">
+                    <div className="mt-5 grid grid-cols-2 gap-2">
                         {galleryImages.map((src) => (
                             <div key={src} className="relative aspect-square rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-900">
                                 <img src={src} alt="Khun Sophavisnuka" className="w-full h-full object-cover" />
                             </div>
                         ))}
-                    </div> */}
-
+                    </div>
+                    <div className="mt-5 bg-gray-100 dark:bg-gray-800 rounded-lg sm:px-5 py-2">
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Contact Information</h2>
+                            <div className="space-y-4">
+                                {contactInfo.map((info, index) => {
+                                    const Icon = info.icon;
+                                    return (
+                                        <div key={index} className="flex items-center gap-4">
+                                            <div className="bg-primary/10 p-3 rounded-lg">
+                                                <Icon className="w-6 h-6 text-primary" />
+                                            </div>
+                                            <div>
+                                                <h3 className="font-semibold text-gray-900 dark:text-white">{info.label}</h3>
+                                                {info.href !== "#" ? (
+                                                    <a 
+                                                        href={info.href}
+                                                        className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                                                    >
+                                                        {info.value}
+                                                    </a>
+                                                ) : (
+                                                    <p className="text-gray-600 dark:text-gray-400">{info.value}</p>
+                                                )}
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
                     <div className="flex-1" />
 
-                    {/* Resume + footer */}
-                    <div className="mt-10 pt-6 border-t border-gray-200 dark:border-gray-800">
-                        <a
-                            href="/other/Khun-Sophavisnuka-CV.pdf"
-                            download
-                            className="inline-flex items-center gap-2 text-sm font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-gray-300 transition-colors duration-300"
-                        >
-                            Resume <Download className="w-4 h-4" />
-                        </a>
-                        <span className="mt-4 block text-xs text-gray-400 dark:text-gray-600">© 2025 Sophavisnuka</span>
-                    </div>
                 </div>
             </aside>
         </>
