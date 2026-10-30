@@ -1,11 +1,16 @@
 import "./globals.css";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Work_Sans } from "next/font/google";
 import { ThemeProvider} from "next-themes";
-import Sidebar from "@/components/sidebar";
+import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const workSans = Work_Sans({
+  variable: "--font-work-sans",
   subsets: ["latin"],
 });
 
@@ -57,10 +62,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
       className="scroll-smooth"
     >
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${workSans.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          <Sidebar />
-          <div className="lg:pl-[35%] flex flex-col min-h-screen">
+          <Navbar />
+          <div className="flex flex-col min-h-screen">
             <div className="flex-1">{children}</div>
             <Footer />
           </div>

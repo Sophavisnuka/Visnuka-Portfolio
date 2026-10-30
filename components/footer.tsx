@@ -53,7 +53,7 @@ export default function Footer({
     copyright = `© ${new Date().getFullYear()} Sophavisnuka`,
 }: FooterProps) {
     return (
-        <footer className="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-black px-6 sm:px-10 lg:px-14 py-12">
+        <footer className="topo border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-black px-10 sm:px-24 lg:px-40 py-12">
             <div className="flex w-full flex-col justify-between gap-10 lg:flex-row lg:items-start">
                 <div className="flex w-full flex-col gap-4 lg:max-w-xs">
                     <span className="text-xl font-bold text-gray-900 dark:text-white">Sophavisnuka</span>

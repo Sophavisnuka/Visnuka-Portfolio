@@ -8,7 +8,7 @@ export default function PostersPreview() {
     const previewPosters = posters.slice(0, 6);
 
     return (
-        <div className="relative bg-white dark:bg-gray-900 pt-20 pb-12 px-6 sm:px-10 lg:px-14 sm:pt-24 lg:pt-16">
+        <div className="relative bg-white dark:bg-gray-900 pt-20 pb-12 px-10 sm:px-24 lg:px-40 sm:pt-24 lg:pt-16">
             {/* Header */}
             <div className="flex justify-between">
                 <div className="mb-8">
