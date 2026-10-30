@@ -29,6 +29,7 @@ import {
 } from "react-icons/si";
 import { FaRocket } from 'react-icons/fa';
 import PostersPage from "./posters/page";
+import Moon from "@/components/moon";
 const technologies = [
     { name: "Flutter", icon: SiFlutter, color: "text-blue-500" },
     { name: "JavaScript", icon: SiJavascript, color: "text-yellow-500" },
@@ -60,49 +61,55 @@ const socialLinks = [
 
 export default function HomePage() {
     return (
-        <section className="HeroSection relative flex flex-col min-h-screen sm:pt-24 sm:pb-14 lg:pt-5 bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-all duration-500 overflow-hidden">
-            {/* Name & intro */}
-            <div className="px-5 flex gap-5">
-                <div id="home" className="bg-gray-100 dark:bg-gray-800 p-5 rounded-lg flex flex-col flex-2 items-start justify-start relative z-10 text-left sm:px-10 lg:px-14">
-                    <div className="flex items-center gap-3">
-                        <div className="relative w-11 h-11 rounded-full overflow-hidden shrink-0">
-                            <img src="/me/DSC03306.JPG" alt="Khun Sophavisnuka" className="w-full h-full object-cover" />
-                        </div>
-                        <div>
-                            <h1 className="text-lg xl:text-xl font-bold text-gray-900 dark:text-white leading-tight">
-                                Khun Sophavisnuka
-                            </h1>
-                            <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Full Stack Developer</p>
-                        </div>
+        <section className="HeroSection relative flex flex-col min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-all duration-500 overflow-hidden font-[family-name:var(--font-work)]">
+            {/* Hero - moon */}
+            <div id="home" className="relative w-full min-h-[480px] aspect-[1436/1024] max-h-screen bg-[#05060d] text-white overflow-hidden">
+                <Moon />
+                <h1 className="absolute inset-x-0 top-[48%] -translate-y-1/2 text-center text-5xl sm:text-7xl lg:text-7xl font-bold tracking-tight">
+                    Sophavisnuka
+                </h1>
+                <div className="absolute bottom-8 sm:bottom-16 inset-x-8 sm:inset-x-24 lg:inset-x-40 flex justify-between items-end gap-4 text-xs sm:text-base">
+                    <div>
+                        <p>Junior Software Developer</p>
+                        <p>sophavisnukakhun@gmail.com</p>
                     </div>
-                    {/* Call to Action */}
-                    <div className="mt-10">
-                        <h3 className="text-xl text-gray-900 dark:text-white mb-2">
-                            A software engineering student dedicated to building thoughtful, user-friendly
-                            applications and telling stories through design.I am open and looking for internship opportunities in both web and mobile development
-                        </h3>
-                        <p className="text-gray-600 dark:text-gray-400 mb-4 max-w-xl">
-                            Let's create something amazing together!
+                    <div className="text-right">
+                        <p>Cambodia Academy of Digital Technology</p>
+                        <p className="flex items-center justify-end gap-2">
+                            Member of
+                            <img src="/me/smean-badge.png" alt="SMEAN" className="h-5 sm:h-6" />
                         </p>
-                        <div className="flex flex-wrap gap-3">
-                            <a
-                                href="/other/Khun-Sophavisnuka-CV.pdf"
-                                download
-                                className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary text-white dark:bg-white dark:text-black rounded-lg hover:bg-secondary dark:hover:bg-gray-300 transition-colors duration-300 font-semibold"
-                            >
-                                Resume <Download className="w-4 h-4" />
-                            </a>
-                            <a
-                                href="/contact"
-                                className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary text-white dark:bg-white dark:text-black rounded-lg hover:bg-secondary dark:hover:bg-gray-300 transition-colors duration-300 font-semibold"
-                            >
-                                Get In Touch
-                                <FaRocket className="w-4 h-4" />
-                            </a>
-                        </div>
                     </div>
                 </div>
-                <div className="flex flex-col flex-1 gap-4">
+            </div>
+
+            {/* Cover - intro */}
+            <div className="relative w-full aspect-[1436/673] min-h-[320px] overflow-hidden bg-black">
+                <img src="/me/cover.png" alt="Khun Sophavisnuka" className="absolute inset-0 w-full h-full object-cover opacity-60" />
+                <p className="absolute right-6 sm:right-[6%] top-[55%] sm:top-1/2 max-w-[17rem] sm:max-w-md lg:max-w-lg text-center text-white text-xs sm:text-base lg:text-lg font-medium leading-snug drop-shadow-lg">
+                    A software engineering student dedicated to building thoughtful, user-friendly applications and telling stories through design. I am open and looking for job opportunities in both web and mobile development
+                </p>
+            </div>
+
+            {/* Resume / contact / socials */}
+            <div className="px-10 sm:px-24 lg:px-40 mt-10 flex flex-wrap items-center justify-between gap-5">
+                <div className="flex flex-wrap gap-3">
+                    <a
+                        href="/other/Khun-Sophavisnuka-CV.pdf"
+                        download
+                        className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary text-white dark:bg-white dark:text-black rounded-lg hover:bg-secondary dark:hover:bg-gray-300 transition-colors duration-300 font-semibold"
+                    >
+                        Resume <Download className="w-4 h-4" />
+                    </a>
+                    <a
+                        href="/contact"
+                        className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary text-white dark:bg-white dark:text-black rounded-lg hover:bg-secondary dark:hover:bg-gray-300 transition-colors duration-300 font-semibold"
+                    >
+                        Get In Touch
+                        <FaRocket className="w-4 h-4" />
+                    </a>
+                </div>
+                <div className="flex gap-3">
                     {socialLinks.map((social) => {
                         const Icon = social.icon;
                         return (
@@ -111,9 +118,9 @@ export default function HomePage() {
                                 href={social.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group bg-gray-100 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 p-5 rounded-lg flex items-center justify-between transition-colors duration-300"
+                                aria-label={social.name}
+                                className="group bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors duration-300"
                             >
-                                <span className="font-medium text-gray-900 dark:text-white">{social.name}</span>
                                 <Icon className="w-5 h-5 text-gray-500 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300" />
                             </a>
                         );
@@ -122,7 +129,7 @@ export default function HomePage() {
             </div>
 
             {/* Tech Stack Section - icon-only infinite scroll */}
-            <div className="px-5">
+            <div className="px-10 sm:px-24 lg:px-40">
                 <div id="techStack" className="bg-gray-100 dark:bg-gray-800 rounded-lg mt-12 py-8 relative z-10 overflow-hidden">
                     <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
                         {[...technologies, ...technologies].map((tech, index) => {

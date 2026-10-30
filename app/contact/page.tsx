@@ -103,7 +103,7 @@ export default function ContactPage() {
     ];
 
     return (
-        <div className="relative min-h-screen dark:bg-gray-900 pt-20 pb-12 px-4 sm:pt-24 sm:pb-14 lg:pt-12">
+        <div className="relative min-h-screen dark:bg-gray-900 pt-20 pb-12 px-10 sm:px-24 lg:px-40 sm:pt-24 sm:pb-14 lg:pt-12">
             <div className="max-w-7xl mx-auto z-10">
                 {/* Header */}
                 <div className="text-start mb-12">

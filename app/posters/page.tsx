@@ -15,14 +15,14 @@ export default function PostersPage() {
     }, []);
 
     return (
-        <div className="relative min-h-screen bg-white dark:bg-gray-900 pt-20 pb-12 px-4 sm:pt-24 sm:pb-14 lg:pt-12">
-            <div className="relative z-10 max-w-7xl mx-auto">
+        <div className="relative bg-white dark:bg-gray-900 pt-20 pb-12 px-10 sm:px-24 lg:px-40 sm:pt-24 lg:pt-16">
+            <div className="relative z-10">
                 {/* Header */}
-                <div className="text-start mb-12">
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                <div className="mb-8">
+                    <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">
                         Poster Design
                     </h1>
-                    <p className="text-lg text-start text-gray-600 dark:text-gray-400 max-w-2xl">
+                    <p className="text-base text-gray-600 dark:text-gray-400 max-w-xl">
                         A selection of poster designs I've created using Photoshop and other design tools.
                     </p>
                 </div>

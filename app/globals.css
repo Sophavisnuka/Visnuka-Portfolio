@@ -11,6 +11,7 @@
 
 @theme inline {
   --font-sans: var(--font-geist-sans);
+  --font-work: var(--font-work-sans);
   --font-mono: var(--font-geist-mono);
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
@@ -32,4 +33,31 @@ body {
 
 .animate-marquee {
   animation: marquee 25s linear infinite;
+}
+
+/* Topographic contour lines behind a section (public/topo.svg used as a mask) */
+.topo {
+  position: relative;
+}
+
+.topo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: #000;
+  opacity: 0.1;
+  -webkit-mask: url("/topo.svg") center / cover no-repeat;
+  mask: url("/topo.svg") center / cover no-repeat;
+}
+
+.dark .topo::before {
+  background-color: #fff;
+  opacity: 0.07;
+}
+
+.topo > * {
+  position: relative;
+  z-index: 1;
 }
