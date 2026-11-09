@@ -8,14 +8,14 @@ import { usePathname } from 'next/navigation';
 const mainLinks = [
     { label: 'Home', href: '/#home' },
     { label: 'About', href: '/#about' },
-    { label: 'Project', href: '/#project' },
     { label: 'Experience', href: '/#experience' },
+    { label: 'Project', href: '/#project' },
+    { label: 'Posters', href: '/#posters' },
+    { label: 'Volunteer', href: '/#achievement' },
 ];
 
 const menuLinks = [
     ...mainLinks,
-    { label: 'Posters', href: '/#posters' },
-    { label: 'Achievements', href: '/#achievement' },
     { label: 'Contact', href: '/contact' },
 ];
 
@@ -63,18 +63,16 @@ export default function Navbar() {
                 isGlass ? 'text-black' : 'text-white'
             }`}>
                 <div className={`relative flex items-center justify-between text-xs font-semibold transition-all duration-500 px-10 sm:px-24 lg:px-40 py-8`}>
-                    <button
-                        onClick={() => setIsMenuOpen(true)}
-                        className={`${pill} flex flex-col justify-center gap-1 ${isGlass ? 'w-11 h-11 items-center' : 'w-6 py-1'}`}
-                        aria-label="Open menu"
+                    <Link
+                        href="/#home"
+                        aria-label="KS - home"
+                        className={`${pill} text-base font-bold tracking-wider ${isGlass ? 'px-5 py-3 hover:text-gray-600' : 'hover:text-gray-300'}`}
                     >
-                        <span className={`w-5 h-0.5 ${isGlass ? 'bg-black' : 'bg-white'}`} />
-                        <span className={`w-5 h-0.5 ${isGlass ? 'bg-black' : 'bg-white'}`} />
-                        <span className={`w-5 h-0.5 ${isGlass ? 'bg-black' : 'bg-white'}`} />
-                    </button>
+                        KS
+                    </Link>
 
                     <nav className="hidden md:block absolute left-1/2 -translate-x-1/2">
-                        <ul className={`${pill} flex gap-12 ${isGlass ? 'px-10 py-3.5' : ''}`}>
+                        <ul className={`${pill} flex gap-8 ${isGlass ? 'px-8 py-3.5' : ''}`}>
                             {mainLinks.map((link) => (
                                 <li key={link.label}>
                                     <Link href={link.href} className={`transition-colors duration-300 ${isGlass ? 'hover:text-gray-600' : 'hover:text-gray-300'}`}>
@@ -85,20 +83,32 @@ export default function Navbar() {
                         </ul>
                     </nav>
 
-                    <Link
-                        href="/#home"
-                        className={`${pill} ${isGlass ? 'px-6 py-3.5 hover:text-gray-600' : 'hover:text-gray-300'}`}
-                    >
-                        Sophavisnuka
-                    </Link>
+                    <div className="flex items-center gap-3">
+                        <Link
+                            href="/contact"
+                            className={`${pill} hidden md:block ${isGlass ? 'px-6 py-3.5 hover:text-gray-600' : 'hover:text-gray-300'}`}
+                        >
+                            Contact
+                        </Link>
+                        {/* Menu button: small screens only */}
+                        <button
+                            onClick={() => setIsMenuOpen(true)}
+                            className={`${pill} md:hidden flex flex-col justify-center gap-1 ${isGlass ? 'w-11 h-11 items-center' : 'w-6 py-1'}`}
+                            aria-label="Open menu"
+                        >
+                            <span className={`w-5 h-0.5 ${isGlass ? 'bg-black' : 'bg-white'}`} />
+                            <span className={`w-5 h-0.5 ${isGlass ? 'bg-black' : 'bg-white'}`} />
+                            <span className={`w-5 h-0.5 ${isGlass ? 'bg-black' : 'bg-white'}`} />
+                        </button>
+                    </div>
                 </div>
             </header>
 
             {/* Slide-in menu: full link list, contact info, theme toggle */}
             {isMenuOpen && (
-                <div className="fixed inset-0 z-[60]">
+                <div className="fixed inset-0 z-[60] md:hidden">
                     <div className="absolute inset-0 bg-black/60" onClick={() => setIsMenuOpen(false)} />
-                    <aside className="absolute top-0 left-0 h-full w-72 max-w-[85%] bg-black text-white p-8 flex flex-col">
+                    <aside className="absolute top-0 right-0 h-full w-72 max-w-[85%] bg-black text-white p-8 flex flex-col">
                         <div className="flex items-center justify-between mb-10">
                             <button
                                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
