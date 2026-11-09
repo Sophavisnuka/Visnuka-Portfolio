@@ -34,10 +34,10 @@ export default function AchievementPage() {
             {/* Header */}
             <div className="mb-8">
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                    Achievements
+                    Volunteer Experience
                 </h2>
                 <p className="text-base text-gray-600 dark:text-gray-400 max-w-xl">
-                    A showcase of my academic achievements, certifications, and contributions to the tech community.
+                    Volunteering, training and community work I have taken part in.
                 </p>
             </div>
 
