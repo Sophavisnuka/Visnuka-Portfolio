@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { assetUrl, useCollection } from '@/lib/api';
 
 interface Project {
     title: string;
@@ -13,51 +14,56 @@ interface Project {
     demo?: string;
 }
 
-// Display order: Year 2 -> Year 3
-const projects: Project[] = [
+// Fallback shown only when the Go API is unreachable
+const staticTimeline: { year: string; projects: Omit<Project, "year">[] }[] = [
     {
-        title: "Real Estate Agency",
         year: "Year 2",
-        description: "Platform for viewing all property in Cambodia",
-        image: "/other/realestatewebsite.png",
-        technologies: ["React.js", "PostgreSQL", "Tailwind"],
-        github: "https://github.com/Sophavisnuka/real-estate-agency.git",
-        demo: "https://arch-daily-agency.vercel.app/",
+        projects: [
+            {
+                title: "Real Estate Agency",
+                description: "Platform for viewing all property in Cambodia",
+                image: "/other/realestatewebsite.png",
+                technologies: ["React.js", "PostgreSQL", "Tailwind"],
+                github: "https://github.com/Sophavisnuka/real-estate-agency.git",
+                demo: "https://arch-daily-agency.vercel.app/",
+            },
+            {
+                title: "Automata Calculation",
+                description: "A Simple website that let CADT Student in year2 can calculate and generate the image for automata course",
+                image: "/other/automata.png",
+                technologies: ["React", "Tailwind"],
+                github: "https://github.com/Sophavisnuka/QuizDo.git",
+                demo: "https://automata-fawn.vercel.app/",
+            },
+            {
+                title: "CADT Social Link",
+                description: "A Website that list all social media of CSA(CADT Student Association).",
+                image: "/other/cadt-social-link.png",
+                technologies: ["React", "Tailwind"],
+                github: "https://github.com/Sophavisnuka/CADT-Social-Link.git",
+                demo: "https://cadt-social-media.netlify.app/",
+            },
+            {
+                title: "ACET Conference Management",
+                description: "A website for researcher to submit research paper and managing Conferences",
+                image: "/other/Acet.png",
+                technologies: ["React", "Laravel", "Tailwind"],
+                github: "https://github.com/Somawatey/ACET-Conference-Management-System.git",
+            },
+        ],
     },
     {
-        title: "Automata Calculation",
-        year: "Year 2",
-        description: "A Simple website that let CADT Student in year2 can calculate and generate the image for automata course",
-        image: "/other/automata.png",
-        technologies: ["React", "Tailwind"],
-        github: "https://github.com/Sophavisnuka/QuizDo.git",
-        demo: "https://automata-fawn.vercel.app/",
-    },
-    {
-        title: "CADT Social Link",
-        year: "Year 2",
-        description: "A Website that list all social media of CSA(CADT Student Association).",
-        image: "/other/cadt-social-link.png",
-        technologies: ["React", "Tailwind"],
-        github: "https://github.com/Sophavisnuka/CADT-Social-Link.git",
-        demo: "https://cadt-social-media.netlify.app/",
-    },
-    {
-        title: "ACET Conference Management",
-        year: "Year 2",
-        description: "A website for researcher to submit research paper and managing Conferences",
-        image: "/other/Acet.png",
-        technologies: ["React", "Laravel", "Tailwind"],
-        github: "https://github.com/Somawatey/ACET-Conference-Management-System.git",
-    },
-    {
-        title: "Smean Mobile App",
         year: "Year 3",
-        description: "A Mobile App that convert audio to text in Khmer or English",
-        image: "/other/smean.png",
-        technologies: ["Flutter"],
-        github: "https://github.com/Sophavisnuka/Smean-Mobile-App.git",
-        demo: "https://sophavisnukakhun.vercel.app/project",
+        projects: [
+            {
+                title: "Smean Mobile App",
+                description: "A Mobile App that convert audio to text in Khmer or English",
+                image: "/other/smean.png",
+                technologies: ["Flutter"],
+                github: "https://github.com/Sophavisnuka/Smean-Mobile-App.git",
+                demo: "https://sophavisnukakhun.vercel.app/project",
+            },
+        ],
     },
 ];
 
@@ -67,6 +73,11 @@ const FALLBACK =
 export default function ProjectPage() {
     const trackRef = useRef<HTMLDivElement>(null);
     const [active, setActive] = useState(0);
+    // Display order comes from the database (Year 2 -> Year 3)
+    const projects = useCollection<Project>(
+        'projects',
+        staticTimeline.flatMap((g) => g.projects.map((p) => ({ ...p, year: g.year }))),
+    );
     const count = projects.length;
 
     // Map scroll position inside the tall section to the active project
@@ -98,7 +109,8 @@ export default function ProjectPage() {
         window.scrollTo({ top: top + ((i + 0.5) / count) * scrollable, behavior: 'smooth' });
     };
 
-    const current = projects[active];
+    const current = projects[Math.min(active, count - 1)];
+    if (!current) return null;
 
     return (
         <div ref={trackRef} className="relative bg-white dark:bg-gray-900" style={{ height: `${count * 100}vh` }}>
@@ -176,7 +188,7 @@ export default function ProjectPage() {
                             {projects.map((p) => (
                                 <div key={p.title} className="h-full w-full">
                                     <img
-                                        src={p.image}
+                                        src={assetUrl(p.image)}
                                         alt={p.title}
                                         className="block h-full w-full object-cover"
                                         onError={(e) => {

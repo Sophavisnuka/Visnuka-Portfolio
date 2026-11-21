@@ -1,8 +1,9 @@
 'use client';
 import { Briefcase } from 'lucide-react';
+import { useCollection } from '@/lib/api';
 
 export default function ExperiencePage() {
-    const experience = [
+    const staticExperience = [
         {
             role: "Backend Developer Intern",
             place: "Maxx Creation Technology",
@@ -22,6 +23,7 @@ export default function ExperiencePage() {
             description: "Freelance work creating poster designs, social media graphics, and motion graphic videos for clients and events."
         }
     ];
+    const experience = useCollection<(typeof staticExperience)[number]>('experience', staticExperience);
 
     return (
         <div className="relative bg-white dark:bg-gray-900 pt-20 pb-12 px-10 sm:px-24 lg:px-40 sm:pt-24 lg:pt-16">

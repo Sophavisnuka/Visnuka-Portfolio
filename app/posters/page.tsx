@@ -4,9 +4,11 @@ import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
-import { posters } from './data';
+import { posters as staticPosters } from './data';
+import { assetUrl, useCollection } from '@/lib/api';
 
 export default function PostersPage() {
+    const posters = useCollection<{ image: string }>('posters', staticPosters.map((image) => ({ image })));
     const [selectedPoster, setSelectedPoster] = useState<string | null>(null);
     const [isMounted, setIsMounted] = useState(false);
 
@@ -33,10 +35,10 @@ export default function PostersPage() {
                         <div
                             key={index}
                             className="group relative aspect-[3/4] bg-white/90 dark:bg-gray-800/90 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:transform hover:scale-105 border border-gray-200/50 dark:border-gray-700/50 cursor-pointer"
-                            onClick={() => setSelectedPoster(poster)}
+                            onClick={() => setSelectedPoster(assetUrl(poster.image))}
                         >
                             <img
-                                src={poster}
+                                src={assetUrl(poster.image)}
                                 alt={`Poster design ${index + 1}`}
                                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                             />
