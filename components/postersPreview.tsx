@@ -2,9 +2,11 @@
 
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { posters } from '@/app/posters/data';
+import { posters as staticPosters } from '@/app/posters/data';
+import { assetUrl, useCollection } from '@/lib/api';
 
 export default function PostersPreview() {
+    const posters = useCollection<{ image: string }>('posters', staticPosters.map((image) => ({ image })));
     const previewPosters = posters.slice(0, 6);
 
     return (
@@ -36,7 +38,7 @@ export default function PostersPreview() {
                     <div key={index} className="group">
                         <div className="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-primary/5">
                             <img
-                                src={poster}
+                                src={assetUrl(poster.image)}
                                 alt={`Poster design ${index + 1}`}
                                 className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
                             />

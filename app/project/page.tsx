@@ -1,6 +1,7 @@
 'use client';
 
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { assetUrl, useCollection } from '@/lib/api';
 
 interface Project {
     title: string;
@@ -11,8 +12,8 @@ interface Project {
     demo?: string;
 }
 
-// Timeline: Year 2 -> Year 3, in display order
-const timeline: { year: string; projects: Project[] }[] = [
+// Fallback shown only when the Go API is unreachable
+const staticTimeline: { year: string; projects: Project[] }[] = [
     {
         year: "Year 2",
         projects: [
@@ -65,6 +66,18 @@ const timeline: { year: string; projects: Project[] }[] = [
 ];
 
 export default function ProjectPage() {
+    const flat = useCollection<Project & { year: string }>(
+        'projects',
+        staticTimeline.flatMap((g) => g.projects.map((p) => ({ ...p, year: g.year }))),
+    );
+    // group by year, keeping the order from the database
+    const timeline: { year: string; projects: Project[] }[] = [];
+    for (const p of flat) {
+        let g = timeline.find((t) => t.year === p.year);
+        if (!g) timeline.push((g = { year: p.year, projects: [] }));
+        g.projects.push(p);
+    }
+
     return (
         <div className="relative bg-white dark:bg-gray-900 pt-20 pb-12 px-10 sm:px-24 lg:px-40 sm:pt-24 lg:pt-16">
             {/* Header */}
@@ -103,7 +116,7 @@ export default function ProjectPage() {
                                         {project.description}
                                     </p>
                                     <p className="mt-3 text-xs text-gray-500 dark:text-gray-400">
-                                        {project.technologies.join(' · ')}
+                                        {(project.technologies ?? []).join(' · ')}
                                     </p>
                                     <div className="mt-4 flex items-center gap-4">
                                         <a
@@ -132,7 +145,7 @@ export default function ProjectPage() {
                                 {/* full project image */}
                                 <div className="md:col-span-3 aspect-[1919/909] rounded-lg overflow-hidden bg-primary/5">
                                     <img
-                                        src={project.image}
+                                        src={assetUrl(project.image)}
                                         alt={project.title}
                                         className="w-full h-full object-cover block"
                                         onError={(e) => {
