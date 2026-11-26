@@ -29,6 +29,7 @@ import {
 import { FaRocket } from 'react-icons/fa';
 import PostersPage from "./posters/page";
 import Moon from "@/components/moon";
+import AchievementCards from "@/components/achievementCards";
 import AboutSlider from "@/components/aboutSlider";
 const technologies = [
     { name: "Flutter", icon: SiFlutter, color: "text-blue-500" },
@@ -240,6 +241,10 @@ export default function HomePage() {
             {/* posters page (freelance) */}
             <div id="posters" className="relative z-10">
                 <PostersPage />
+            </div>
+            {/* achievements - certificate cards */}
+            <div id="certificates" className="relative z-10">
+                <AchievementCards />
             </div>
             {/* volunteer experience page */}
             <div id="achievement" className="relative z-10 mb-16">

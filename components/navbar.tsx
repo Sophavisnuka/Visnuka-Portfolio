@@ -11,6 +11,7 @@ const mainLinks = [
     { label: 'Experience', href: '/#experience' },
     { label: 'Project', href: '/#project' },
     { label: 'Posters', href: '/#posters' },
+    { label: 'Achievements', href: '/#certificates' },
     { label: 'Volunteer', href: '/#achievement' },
 ];
 

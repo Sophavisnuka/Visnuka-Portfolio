@@ -136,7 +136,8 @@ export default function ProjectPage() {
                                 {current.description}
                             </p>
                             <p className="mt-3 text-xs text-gray-500 dark:text-gray-400">
-                                {current.technologies.join(' · ')}
+                                {/* database records may omit this field or store it as plain text */}
+                                {[current.technologies ?? []].flat().join(' · ')}
                             </p>
                             <div className="mt-4 flex items-center gap-4">
                                 <a
