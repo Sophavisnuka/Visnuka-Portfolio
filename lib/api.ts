@@ -11,15 +11,16 @@ export const assetUrl = (src: string) => (src?.startsWith('/uploads/') ? API_URL
  * Loads a collection from the Go API (sorted by "order").
  * - while loading: returns []
  * - API unreachable (e.g. the deployed site, no backend): returns `fallback`
+ * - fallbackWhenEmpty: also return `fallback` when the collection has no records
  */
-export function useCollection<T>(name: string, fallback: T[]): T[] {
+export function useCollection<T>(name: string, fallback: T[], { fallbackWhenEmpty = false } = {}): T[] {
     const [items, setItems] = useState<T[]>([]);
 
     useEffect(() => {
         const ctl = new AbortController();
         fetch(`${API_URL}/api/public/${name}?limit=200&sort=order`, { signal: ctl.signal })
             .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
-            .then((d) => setItems(d.documents as T[]))
+            .then((d) => setItems(fallbackWhenEmpty && !d.documents?.length ? fallback : (d.documents as T[])))
             .catch((e) => {
                 if (e.name !== 'AbortError') setItems(fallback);
             });

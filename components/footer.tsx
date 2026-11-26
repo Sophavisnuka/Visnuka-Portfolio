@@ -27,7 +27,8 @@ const defaultSections: FooterSection[] = [
             { name: 'Projects', href: '/#project' },
             { name: 'Posters', href: '/#posters' },
             { name: 'Experience', href: '/#experience' },
-            { name: 'Achievements', href: '/#achievement' },
+            { name: 'Achievements', href: '/#certificates' },
+            { name: 'Volunteer', href: '/#achievement' },
         ],
     },
     {
